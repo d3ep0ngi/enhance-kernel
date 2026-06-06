@@ -1399,10 +1399,10 @@ jobs:
           echo "✅ Repacked boot.img: ${BOOT_IMG_NAME}"
           echo "::endgroup::"
 
-      - name: Generate Pixel 8 Runtime Tuner Script
-        if: env.DRY_RUN_ONLY != 'true'
+      - name: Generate enhance tuner
+        if: ${{ matrix.variant == 'enhance' && env.DRY_RUN_ONLY != 'true' }}
         run: |
-          export KSU_VARIANT="${{ matrix.variant }}"
+          export KSU_VARIANT=enhance
           bash .github/scripts/generate-runtime-tuner.sh
       - name: Upload Artifacts
         if: env.DRY_RUN_ONLY != 'true'
