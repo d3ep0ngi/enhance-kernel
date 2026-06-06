@@ -55,7 +55,7 @@ on:
         default: 'auto'
         type: string
       include_runtime_tuner:
-        description: 'Include Pixel 8 runtime tuner script'
+        description: 'Include Pixel 8 runtime tuner script (enhance variant)'
         required: false
         default: true
         type: boolean
