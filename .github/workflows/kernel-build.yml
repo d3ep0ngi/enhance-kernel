@@ -1380,7 +1380,7 @@ jobs:
 
           # ksud outputs patched file as kernelsu_patched_boot.img or similar
           PATCHED_IMG=$(find "${REPACK_DIR}" -name '*patched*boot*' -o -name 'new-boot.img' | head -1)
-          if [ -z "$PATCHED_IMG" ] || [ ! -f "$PATCHED_IMG" ]; then
+          if [ -z "$PATCHED_IMG" ] || [ ! -s "$PATCHED_IMG" ]; then
             echo "❌ ksud boot-patch did not produce a patched image"
             ls -la "${REPACK_DIR}/"
             exit 1
