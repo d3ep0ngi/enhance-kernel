@@ -98,8 +98,8 @@ on:
   workflow_call:
     inputs:
       use_self_hosted:
-        required: false
-        default: false
+        required: true
+        default: true
         type: boolean
       ksu_variant:
         required: false
@@ -156,7 +156,7 @@ permissions:
 
 concurrency:
   group: kernel-build-workflow-${{ github.ref_name }}-${{ inputs.ksu_variant || 'all' }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 env:
   # Mirror the local self-hosted toolchain layout used for manual builds.
@@ -187,7 +187,7 @@ env:
 
 jobs:
   setup:
-    runs-on: [self-hosted, linux, x64, deepongi-labs]
+    runs-on: ['self-hosted', 'Linux', 'X64']
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       enable_susfs: ${{ steps.config.outputs.enable_susfs }}
