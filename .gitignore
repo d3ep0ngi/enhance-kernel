@@ -1,0 +1,13 @@
+# Compiler cache
+.ccache/
+.ccache-tmp/
+
+# Build logs
+*.log
+
+# Build output artifacts (flashable zips and their unpacked staging dirs)
+*.zip
+enhance-kernel-miatoll-KSUNext-manual-*/
+
+# Local Claude Code settings (per-user, not shared)
+.claude/settings.local.json
